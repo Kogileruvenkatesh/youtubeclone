@@ -10,16 +10,17 @@ import {GoogleLogin} from "react-google-login";
 import {gapi} from "gapi-script"
 import {useDispatch, useSelector} from 'react-redux'
 import { login } from '../../actions/auth';
+//import Auth from '../../pages/Auth/Auth';
 function Navbar({toggleDrawer}) {
  //const CurrentUser = null;
 
 
-//  const CurrentUser ={
-//     result:{
-//         email:"kogileruvenkatesh@gmail.com",
-//         joinedOn:"2222-07-15T09:23.4892",
-//     },
-//  };
+//   const CurrentUser ={
+//      result:{
+//          email:"kogileruvenkatesh@gmail.com",
+//          joinedOn:"2222-07-15T09:23.4892",
+//      },
+//   };
 const CurrentUser =useSelector(state=>state.CurrentUserReducer)
 console.log(CurrentUser)
 useEffect(()=>{
@@ -41,8 +42,9 @@ useEffect(()=>{
 
     const onFailure=(response)=>{
         console.log("Failed",response)
-    }
+    };
   return (
+    <>
     <div className='container_Navbar'>
         <div className="Burger_Logo_Navbar">
             <div className="burger" onClick={()=>toggleDrawer()}>
@@ -107,6 +109,12 @@ useEffect(()=>{
               
             </div>
         </div>
+        {/* {
+            <Auth
+            User={CurrentUser}
+            />
+        } */}
+        </>
   );
 }
 
